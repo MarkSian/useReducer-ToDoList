@@ -20,8 +20,9 @@ function TodoList () {
         <>
             <fieldset className="fieldset">
                 <h1 className = "text-3xl">Todo List</h1>
-                <input type="text" className="input" placeholder="Add Todo Here!" />
-                
+                <input type="text" value = {state.newTodo} onChange = {(e) => dispatch ({type:"TYPE_NEW_TODO", payload: e.target.value})} className="input" placeholder="Add Todo Here!" />
+                    <div>Current input: {state.newTodo}</div> {/* Debug output */}
+
             </fieldset>
         
         
