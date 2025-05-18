@@ -16,5 +16,22 @@ const TodoReducer = (state, action) => {
 function TodoList () {
     const [state, dispatch] = useReducer(TodoReducer, initialState);
 
-    
+    return (
+        <>
+            <fieldset className="fieldset">
+                <h1 className = "text-3xl">Todo List</h1>
+                <input type="text" className="input" placeholder="Add Todo Here!" />
+                
+            </fieldset>
+        
+        
+        
+        
+        
+        
+        </>
+    )
 }
+
+
+export default TodoList;
