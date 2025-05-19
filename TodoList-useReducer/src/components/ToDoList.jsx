@@ -18,6 +18,13 @@ const TodoReducer = (state, action) => {
                 ...state.todos], 
                 newTodo: ""
             };
+        case "TOGGLE_COMPLETE":
+            return {
+                ...state,
+                todos: state.todos.map(todo => todo.id === action.payload ? {...todo, completed: !todo.completed} : todo)  
+            };
+
+
     }
 }
 
@@ -36,9 +43,14 @@ function TodoList () {
 
             <ul>
                 {state.todos.map(todo => (
-                    <li key={todo.id}>{todo.text}</li>
+                    <li
+                        key={todo.id}
+                        onClick={() => dispatch({ type: "TOGGLE_COMPLETE", payload: todo.id })}
+                        style={{ textDecoration: todo.completed ? "line-through" : "none", cursor: "pointer" }}
+                    >
+                        {todo.text}
+                    </li>
                 ))}
-                
             </ul>
         
         
